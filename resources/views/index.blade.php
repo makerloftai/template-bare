@@ -14,7 +14,15 @@
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
             @vite(['resources/css/app.css', 'resources/js/app.js'])
         @endif
+
+        @fluxAppearance
     </head>
-    <body>
+    <body class="antialiased font-sans bg-white dark:bg-zinc-900 min-h-screen">
+        <flux:main container class="py-12 text-center">
+            <flux:heading size="xl">{{ config('app.name') }}</flux:heading>
+            <flux:subheading class="mt-2">{{ __('Welcome.') }}</flux:subheading>
+        </flux:main>
+
+        @fluxScripts
     </body>
 </html>
